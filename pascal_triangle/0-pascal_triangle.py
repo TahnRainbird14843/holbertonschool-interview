@@ -1,6 +1,10 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
+"""
+This function computes the first n rows of pascals triangle
+"""
 def pascal_triangle(n):
+    """as above"""
     if (n <= 0):
         return ([])
     triangle = [[1]]
