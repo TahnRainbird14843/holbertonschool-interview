@@ -3,6 +3,8 @@
 """
 This function computes the first n rows of pascals triangle
 """
+
+
 def pascal_triangle(n):
     """as above"""
     if (n <= 0):
