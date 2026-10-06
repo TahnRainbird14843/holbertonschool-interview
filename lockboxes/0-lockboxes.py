@@ -10,3 +10,4 @@ def canUnlockAll(boxes):
         keys.update(new_keys)
 
     return (len(set(keys)) == len(boxes))
+
