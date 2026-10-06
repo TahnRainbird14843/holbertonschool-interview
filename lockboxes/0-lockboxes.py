@@ -16,8 +16,7 @@ def canUnlockAll(boxes):
 
     for _ in range(len(boxes)):
         for key in keys:
-            if (key < len(boxes)):
-                new_keys.update(boxes[key])
+            new_keys.update([k for k in boxes[key] if k < len(boxes)])
         keys.update(new_keys)
 
     return (len(set(keys)) == len(boxes))
