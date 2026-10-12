@@ -1,0 +1,1 @@
+This directory contains two different implementations of a pascal triangle generating algorithm in python
