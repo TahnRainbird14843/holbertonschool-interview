@@ -1,0 +1,1 @@
+This directory is for parsing log strings in Python
