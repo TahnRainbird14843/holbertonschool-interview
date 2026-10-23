@@ -33,7 +33,6 @@ def main():
                 size = tokens[-1]
             except BaseException:
                 size = None
-        
             if (status.isnumeric() and size.isnumeric() and
                     status in status_codes.keys()):
                 total_size += int(size)
@@ -42,7 +41,6 @@ def main():
             elif (size.isnumeric()):
                 total_size += int(size)
                 i += 1
-            
             if (i % 10 == 0 and i != 0):
                 print_stats(total_size, status_codes)
                 i = 0
