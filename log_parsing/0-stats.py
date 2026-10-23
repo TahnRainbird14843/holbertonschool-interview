@@ -22,15 +22,13 @@ def main():
     status_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
     try:
         for line in sys.stdin:
-            line = line.strip()
-            tokens = line.split()
             try:
+                line = line.strip()
+                tokens = line.split()
                 status = tokens[-2]
-            except:
-                status = None
-            try:
                 size = tokens[-1]
             except:
+                status = None
                 size = None
             if (status.isnumeric() and size.isnumeric() and status in status_codes.keys()):
                 total_size += int(size)
