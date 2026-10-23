@@ -27,15 +27,22 @@ def main():
                 line = line.strip()
                 tokens = line.split(" ")
                 status = tokens[-2]
-                size = tokens[-1]
             except BaseException:
                 status = None
+            try:
+                size = tokens[-1]
+            except BaseException:
                 size = None
+        
             if (status.isnumeric() and size.isnumeric() and
                     status in status_codes.keys()):
                 total_size += int(size)
                 status_codes[status] += 1
                 i += 1
+            elif (size.isnumeric()):
+                total_size += int(size)
+                i += 1
+            
             if (i % 10 == 0 and i != 0):
                 print_stats(total_size, status_codes)
                 i = 0
