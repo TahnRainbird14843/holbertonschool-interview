@@ -33,7 +33,7 @@ def main():
                 size = tokens[-1]
             except BaseException:
                 size = None
-            if (status.isnumeric() and
+            if (status.isnumeric() and size.isnumeric() and
                     status in status_codes.keys()):
                 status_codes[status] += 1
                 i += 1
