@@ -26,10 +26,9 @@ def main():
             tokens = line.split()
             status = tokens[-2]
             size = tokens[-1]
-            if not (status.isnumeric() and size.isnumeric()):
-                raise Exception("Incorrect log format")
-            total_size += int(size)
-            status_codes[str(status)] += 1
+            if (status.isnumeric() and size.isnumeric()):
+                total_size += int(size)
+                status_codes[str(status)] += 1
             i += 1
             if (i % 10 == 0 and i != 0):
                 print_stats(total_size, status_codes)
