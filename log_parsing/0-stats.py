@@ -34,7 +34,7 @@ def main():
             if (status.isnumeric() and size.isnumeric() and
                     status in status_codes.keys()):
                 total_size += int(size)
-                status_codes[str(status)] += 1
+                status_codes[status] += 1
                 i += 1
             if (i % 10 == 0 and i != 0):
                 print_stats(total_size, status_codes)
