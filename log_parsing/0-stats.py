@@ -19,7 +19,8 @@ def main():
     """this is the main loop"""
     total_size = 0
     i = 0
-    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
+    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
+                    "403": 0, "404": 0, "405": 0, "500": 0}
     try:
         for line in sys.stdin:
             try:
@@ -27,20 +28,22 @@ def main():
                 tokens = line.split()
                 status = tokens[-2]
                 size = tokens[-1]
-            except:
+            except BaseException:
                 status = None
                 size = None
-            if (status.isnumeric() and size.isnumeric() and status in status_codes.keys()):
+            if (status.isnumeric() and size.isnumeric() and
+                    status in status_codes.keys()):
                 total_size += int(size)
                 status_codes[str(status)] += 1
             i += 1
             if (i % 10 == 0 and i != 0):
                 print_stats(total_size, status_codes)
                 i = 0
-    except:
+    except BaseException:
         pass
     finally:
         print_stats(total_size, status_codes)
+
 
 if __name__ == "__main__":
     main()
