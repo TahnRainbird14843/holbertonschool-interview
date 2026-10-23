@@ -25,7 +25,7 @@ def main():
         for line in sys.stdin:
             try:
                 line = line.strip()
-                tokens = line.split()
+                tokens = line.split(" ")
                 status = tokens[-2]
                 size = tokens[-1]
             except BaseException:
