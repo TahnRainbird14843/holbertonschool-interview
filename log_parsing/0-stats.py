@@ -26,7 +26,7 @@ def main():
             tokens = line.split()
             status = tokens[-2]
             size = tokens[-1]
-            if (status.isnumeric() and size.isnumeric()):
+            if (status.isnumeric() and size.isnumeric() and status in status_codes.keys()):
                 total_size += int(size)
                 status_codes[str(status)] += 1
             i += 1
