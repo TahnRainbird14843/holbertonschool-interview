@@ -24,8 +24,14 @@ def main():
         for line in sys.stdin:
             line = line.strip()
             tokens = line.split()
-            status = tokens[-2]
-            size = tokens[-1]
+            try:
+                status = tokens[-2]
+            except:
+                status = None
+            try:
+                size = tokens[-1]
+            except:
+                size = None
             if (status.isnumeric() and size.isnumeric() and status in status_codes.keys()):
                 total_size += int(size)
                 status_codes[str(status)] += 1
