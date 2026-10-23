@@ -23,9 +23,12 @@ def main():
                     "403": 0, "404": 0, "405": 0, "500": 0}
     try:
         for line in sys.stdin:
+            line = line.strip()
             try:
-                line = line.strip()
                 tokens = line.split(" ")
+            except BaseException:
+                pass
+            try:
                 status = tokens[-2]
             except BaseException:
                 status = None
