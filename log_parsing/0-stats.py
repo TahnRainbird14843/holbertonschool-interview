@@ -39,7 +39,6 @@ def main():
                 i += 1
             if (size.isnumeric()):
                 total_size += int(size)
-                i += 1
             if (i % 10 == 0 and i != 0):
                 print_stats(total_size, status_codes)
                 i = 0
