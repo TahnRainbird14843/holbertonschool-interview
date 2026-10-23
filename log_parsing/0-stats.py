@@ -2,8 +2,13 @@
 
 import sys
 
+"""
+log parsing
+"""
+
 
 def print_stats(total_size, status_codes):
+    """this prints the relevant stats"""
     print(f"File size: {total_size}")
     for _, (key, value) in enumerate(status_codes.items()):
         if (value != 0):
@@ -11,6 +16,7 @@ def print_stats(total_size, status_codes):
 
 
 def main():
+    """this is the main loop"""
     total_size = 0
     i = 0
     status_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
