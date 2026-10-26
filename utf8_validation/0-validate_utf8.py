@@ -19,6 +19,6 @@ def validUTF8(data):
             i += 1
         else:
             i += skip + 1
-        if i > len(data):
+        if i > len(data) or skip > 3:
             return False
     return True
