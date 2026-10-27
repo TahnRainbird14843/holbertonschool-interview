@@ -7,24 +7,19 @@ Checks if data is a valid UTF8 encoding
 
 def validUTF8(data):
     """this function does the check"""
-    i = 0
-    while i < len(data):
-        bits = [int(j) for j in list('{0:08b}'.format(data[i] % 256))]
-        if bits[0] == 1:
-            skip = bits[1: bits.index(0)].count(1)
-        else:
-            skip = 0
-        if skip > 3:
+    cont = 0
+    for number in data:
+        byte = number & 0xFF
+        valid_byte_lookup = {
+                byte >> 7 == 0b0: 0,
+                byte >> 6 == 0b10: -1,
+                byte >> 5 == 0b110: 1,
+                byte >> 4 == 0b1110: 2,
+                byte >> 3 == 0b11110: 3,
+                }[True]
+        cont_add = valid_byte_lookup
+        if (cont is None or (cont > 0 and cont_add >=0) or
+                (cont == 0 and cont_add < 0)):
             return False
-        while skip > 0:
-            i += 1
-            if i >= len(data):
-                break
-            bits = [int(j) for j in list('{0:08b}'.format(data[i] % 256))]
-            if not (bits[0] == 1 and bits[1] == 0):
-                return False
-            skip -= 1
-        i += 1
-        if i > len(data) or skip != 0:
-            return False
-    return True
+        cont += cont_add
+    return (not bool(cont))
