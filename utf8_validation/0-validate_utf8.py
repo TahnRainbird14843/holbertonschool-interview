@@ -18,11 +18,13 @@ def validUTF8(data):
             return False
         while skip > 0:
             i += 1
+            if i >= len(data):
+                break
             bits = [int(j) for j in list('{0:08b}'.format(data[i] % 256))]
             if not (bits[0] == 1 and bits[1] == 0):
                 return False
             skip -= 1
         i += 1
-        if i > len(data):
+        if i > len(data) or skip != 0:
             return False
     return True
