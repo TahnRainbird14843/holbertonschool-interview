@@ -10,7 +10,10 @@ def validUTF8(data):
     i = 0
     while i < len(data):
         bits = [int(j) for j in list('{0:0b}'.format(data[i]))]
-        skip = bits[bits.index(1) + 1: bits.index(0)].count(1)
+        if 1 in bits:
+            skip = bits[bits.index(1) + 1: bits.index(0)].count(1)
+        else:
+            skip = 0
         i += skip + 1
         if i > len(data) or skip > 3:
             return False
