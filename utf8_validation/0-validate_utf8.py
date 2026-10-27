@@ -19,7 +19,9 @@ def validUTF8(data):
                 byte >> 3 == 0b11111: None
                 }[True]
         cont_add = valid_byte_lookup
-        if (cont is None or (cont > 0 and cont_add >=0) or
+        if (cont is None):
+            return False
+        if (cont > 0 and cont_add >=0) or
                 (cont == 0 and cont_add < 0)):
             return False
         cont += cont_add
