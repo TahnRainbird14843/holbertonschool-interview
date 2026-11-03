@@ -55,9 +55,9 @@ def nqueens(n):
 if __name__ == "__main__":
     if (len(sys.argv) != 2):
         print("usage: nqueens N")
-    else if (not sys.argv[1].isnumeric()):
+    elif (not sys.argv[1].isnumeric()):
         print("N must be a number")
-    else if (int(sys.argv[1]) < 4):
+    elif (int(sys.argv[1]) < 4):
         print("N must be at least 4")
     else:
         nqueens(int(sys.argv[1]))
