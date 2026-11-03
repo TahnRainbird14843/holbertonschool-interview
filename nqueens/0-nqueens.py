@@ -40,7 +40,7 @@ def nqueens(n):
     def attempt_place(board, col):
         if col == n:
             result.append([[i, j] for i in range(n)
-                    for j in range(n) if board[i][j] == "Q"])
+                        for j in range(n) if board[i][j] == "Q"])
             return
 
         for row in range(n):
