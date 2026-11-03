@@ -35,7 +35,7 @@ def display_board(board):
 def nqueens(n):
     board = [["." for i in range(n)] for j in range(n)]
     result = []
-    
+
     def attempt_place(board, col):
         if col == n:
             result.append([[i, j] for i in range(n) for j in range(n) if board[i][j] == "Q"])
@@ -54,7 +54,7 @@ def nqueens(n):
 
 if __name__ == "__main__":
     if (len(sys.argv) != 2):
-        print("usage: nqueens N")
+        print("Usage: nqueens N")
     elif (not sys.argv[1].isnumeric()):
         print("N must be a number")
     elif (int(sys.argv[1]) < 4):
