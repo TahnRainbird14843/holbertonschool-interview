@@ -18,7 +18,7 @@ def is_safe(board, x, y, n):
 
     for i in range(-n, n):
         if (0 <= x + i < n and 0 <= y + i < n and board[x + i][y + i] == "Q"):
-                return False
+            return False
 
     for i in range(-n, n):
         if (0 <= x + i < n and 0 <= y - i < n and board[x + i][y - i] == "Q"):
@@ -32,13 +32,15 @@ def display_board(board):
         print(row)
     print()
 
+
 def nqueens(n):
     board = [["." for i in range(n)] for j in range(n)]
     result = []
 
     def attempt_place(board, col):
         if col == n:
-            result.append([[i, j] for i in range(n) for j in range(n) if board[i][j] == "Q"])
+            result.append([[i, j] for i in range(n)
+                for j in range(n) if board[i][j] == "Q"])
             return
 
         for row in range(n):
