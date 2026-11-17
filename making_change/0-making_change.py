@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 
-import time
+"""this is documented"""
+
 
 def makeChange(coins, total):
+    """do the thing"""
     found = []
 
     def nextCoin(used_coins, index):
+        """iterably do the thing"""
         if sum(used_coins) == total:
             found.append(len(used_coins))
 
