@@ -7,7 +7,7 @@ import time
 
 def makeChange(coins, total):
     """do the thing"""
-    if total <= 0:
+    if (total <= 0 or len(coins) < 1):
         return 0
     
     coins.sort(reverse=True)
