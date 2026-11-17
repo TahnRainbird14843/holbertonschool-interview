@@ -2,25 +2,26 @@
 
 """this is documented"""
 
+import time
+
 
 def makeChange(coins, total):
     """do the thing"""
-    found = []
+    if total <= 0:
+        return 0
+    
+    coins.sort(reverse=True)
 
-    def nextCoin(used_coins, index):
-        """iterably do the thing"""
-        if sum(used_coins) == total:
-            found.append(len(used_coins))
+    if (len(coins) == 1):
+        if (total % coins[0] == 0):
+            print(total // coins[0])
+            return total // coins[0]
+        return -1
 
-        for i, coin in enumerate(coins[index:]):
-            if (sum(used_coins) + coin <= total):
-                used_coins.append(coin)
-                nextCoin(used_coins, index + i)
-                del used_coins[-1]
+    for i in range(total // coins[0], -1, -1):
+        test_subset = makeChange(coins[1: ], total - i * coins[0])
+        if (test_subset != -1):
+            return test_subset + i
 
-    nextCoin([], 0)
-
-    if found:
-        return min(found)
     return -1
 
