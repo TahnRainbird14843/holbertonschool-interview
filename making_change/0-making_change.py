@@ -2,8 +2,6 @@
 
 """this is documented"""
 
-import time
-
 
 def makeChange(coins, total):
     """do the thing"""
@@ -14,7 +12,6 @@ def makeChange(coins, total):
 
     if (len(coins) == 1):
         if (total % coins[0] == 0):
-            print(total // coins[0])
             return total // coins[0]
         return -1
 
