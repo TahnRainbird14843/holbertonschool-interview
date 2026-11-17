@@ -19,7 +19,7 @@ def makeChange(coins, total):
             return total // coins[0]
         return -1
 
-    for i in range(total // coins[0], total // coins[0] - gcd(coins[0], coins[1]) - 1, -1):
+    for i in range(total // coins[0], coins[0] // (coins[0] * coins[1]) // gcd(coins[0], coins[1]) - 1, -1):
         test_subset = makeChange(coins[1: ], total - i * coins[0])
         if (test_subset != -1):
             return test_subset + i
