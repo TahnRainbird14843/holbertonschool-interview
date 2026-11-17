@@ -5,8 +5,10 @@
 
 def makeChange(coins, total):
     """do the thing"""
-    if (total <= 0 or len(coins) < 1):
+    if (total <= 0):
         return 0
+    elif (len(coins) < 1):
+        return -1
     
     coins.sort(reverse=True)
 
