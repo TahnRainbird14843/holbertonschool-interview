@@ -1,31 +1,20 @@
 #!/usr/bin/python3
-
-"""this is documented"""
-
-from math import gcd
+"""Finds fewest coins needed to make change."""
 
 
 def makeChange(coins, total):
-    """do the thing"""
-    if (total <= 0):
+    """Returns fewest num of coins to meet total."""
+    if total <= 0:
         return 0
-    elif (len(coins) < 1):
-        return -1
 
-    coins.sort(reverse=True)
+    dp = [float('inf')] * (total + 1)
+    dp[0] = 0
 
-    if (len(coins) == 1):
-        if (total % coins[0] == 0):
-            return total // coins[0]
-        return -1
+    for coin in coins:
+        for amount in range(coin, total + 1):
+            dp[amount] = min(
+                    dp[amount],
+                    dp[amount - coin] + 1
+            )
 
-    for i in range(total // coins[0],
-                   max(total // coins[0] -
-                       ((coins[0] * coins[1]) //
-                        gcd(coins[0], coins[1]) //
-                        coins[0]), -1), -1):
-        test_subset = makeChange(coins[1:], total - i * coins[0])
-        if (test_subset != -1):
-            return test_subset + i
-
-    return -1
+    return dp[total] if dp[total] != float('inf') else -1
