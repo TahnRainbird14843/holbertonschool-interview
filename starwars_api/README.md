@@ -1,0 +1,1 @@
+This folder is doing a basic GET request with js
