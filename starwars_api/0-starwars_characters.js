@@ -6,12 +6,12 @@ const endpoint = 'https://swapi-api.hbtn.io/api/films'.concat('/', process.argv[
 request(endpoint, (error, response, body) => {
     if (!error & response.statusCode === 200) {
         const character_endpoints = JSON.parse(body)['characters'];
-        character_endpoints.forEach((endpoint) => {
+        for (const endpoint in character_endpoints) {
             request(endpoint, (error, response, body) => {
                 if (!error & response.statusCode === 200) {
-                    console.log(JSON.parse(body)['name']);
+                    console.log(JSON.parse(body)['name'])
                 }
             })
-        })
+        }
     }
 });
