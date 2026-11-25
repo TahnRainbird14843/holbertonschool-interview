@@ -8,8 +8,11 @@ def count_border(grid, pos):
     directions = [[1, 0], [0, 1], [-1, 0], [0, -1]]
     border = 0
     for dir in directions:
+        check = [pos[0] + dir[0], pos[1] + dir[1]]
         try:
-            if grid[pos[0] + dir[0]][pos[1] + dir[1]] == 0:
+            if check[0] < 0 or check[1] < 0:
+                raise IndexError
+            elif grid[pos[0] + dir[0]][pos[1] + dir[1]] == 0:
                 border += 1
         except BaseException:
             border += 1
@@ -23,3 +26,8 @@ def island_perimeter(grid):
     for pos in land:
         border += count_border(grid, pos)
     return border
+
+
+print(island_perimeter([[1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1],
+                        [1, 1, 1, 1, 1]]))
