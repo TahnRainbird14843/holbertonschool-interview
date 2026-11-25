@@ -12,7 +12,7 @@ def count_border(grid, pos):
             if grid[pos[0] + dir[0]][pos[1] + dir[1]] == 0:
                 border += 1
         except BaseException:
-            pass
+            border += 1
     return border
 
 
