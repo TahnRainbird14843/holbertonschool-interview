@@ -8,9 +8,8 @@ def count_border(grid, pos):
     directions = [[1, 0], [0, 1], [-1, 0], [0, -1]]
     border = 0
     for dir in directions:
-        check = pos + dir
         try:
-            if grid[check[0]][check[1]] == 0:
+            if grid[pos[0] + dir[0]][pos[1] + dir[1]] == 0:
                 border += 1
         except BaseException:
             pass
