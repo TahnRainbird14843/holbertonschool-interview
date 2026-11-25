@@ -21,13 +21,9 @@ def count_border(grid, pos):
 
 def island_perimeter(grid):
     """find the entire island perimeter"""
-    land = [[i, j] for i in range(len(grid)) for j in range(len(grid[0])) if grid[i][j] == 1]
+    land = [[i, j] for i in range(len(grid))
+            for j in range(len(grid[0])) if grid[i][j] == 1]
     border = 0
     for pos in land:
         border += count_border(grid, pos)
     return border
-
-
-print(island_perimeter([[1, 1, 1, 1, 1],
-                        [1, 1, 1, 1, 1],
-                        [1, 1, 1, 1, 1]]))
